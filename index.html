@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f1115'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='white'%3EGX%3C/text%3E%3C/svg%3E">
+    <title>郭宣潼 | AI Content Growth Strategist</title>
+    <meta name="description" content="郭宣潼的内容增长与AI创意案例，聚焦科研传播、国际组织项目、未来媒体与数字叙事。">
+    <link rel="stylesheet" href="styles.css?v=20260703-cinematic-2">
+  <link rel="stylesheet" href="src/components/PortfolioArchive.css?v=20260714-ai-video-dual-2">
+    <link rel="stylesheet" href="src/styles/portfolio-motion.css">
+    <link rel="stylesheet" href="src/styles/fashion-typography.css?v=20260709-1">
+  </head>
+  <body>
+    <svg class="svg-filters" aria-hidden="true" focusable="false">
+      <filter id="about-liquid-filter" x="-8%" y="-8%" width="116%" height="116%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.034" numOctaves="2" seed="9" result="liquidNoise">
+          <animate attributeName="baseFrequency" dur="9s" repeatCount="indefinite" values="0.012 0.034; 0.018 0.024; 0.010 0.038; 0.012 0.034" />
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="liquidNoise" scale="7" xChannelSelector="R" yChannelSelector="B">
+          <animate attributeName="scale" dur="8s" repeatCount="indefinite" values="3; 8; 5; 9; 3" />
+        </feDisplacementMap>
+      </filter>
+      <filter id="timeline-liquid-filter" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.006 0.018" numOctaves="2" seed="17" result="timelineNoise">
+          <animate attributeName="baseFrequency" dur="14s" repeatCount="indefinite" values="0.006 0.018; 0.009 0.014; 0.005 0.021; 0.006 0.018" />
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="timelineNoise" scale="9" xChannelSelector="R" yChannelSelector="B">
+          <animate attributeName="scale" dur="12s" repeatCount="indefinite" values="3; 9; 5; 11; 3" />
+        </feDisplacementMap>
+      </filter>
+    </svg>
+    <canvas id="exhibition-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top"><span data-edit-id="brand-name">郭宣潼</span></a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#top">About</a>
+        <a href="#editorial-portfolio">Focus</a>
+        <a href="#measured-signals">Capabilities</a>
+        <a href="#project-index">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-panel" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker" data-edit-id="hero-kicker">AI CONTENT GROWTH STRATEGIST</p>
+          <h1 id="hero-title">
+            <span data-edit-id="hero-line-1">AI Content</span><br>
+            <span data-edit-id="hero-line-2">Growth</span><br>
+            <span data-edit-id="hero-line-3">Strategist</span>
+          </h1>
+          <p class="hero-subhead" data-edit-id="hero-subhead">
+            Research Communication / Tech Trend Translator / 科研与联合国教育内容增长
+          </p>
+          <p class="hero-description" data-edit-id="hero-description">
+            我关注 AI 内容生产、用户洞察与增长链路搭建，擅长将复杂产品、科研项目与新技术概念转译为可理解、可传播、可转化的内容系统。
+          </p>
+          <a class="primary-cta" href="#editorial-portfolio" data-edit-id="hero-cta">Explore the Exhibition</a>
+          <a class="scroll-cue" href="#editorial-portfolio" aria-label="Scroll to Explore">
+            <span>Scroll to Explore</span>
+            <i aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="hero-art hero-video-art" aria-hidden="true">
+          <video class="hero-feature-video" autoplay muted loop playsinline preload="auto">
+            <source src="pinterest-15551561210544949.mp4" type="video/mp4">
+          </video>
+          <span class="hero-video-vignette"></span>
+        </div>
+        <div class="hero-meta">
+          <span data-edit-id="hero-tag-1">AI Workflow</span>
+          <span data-edit-id="hero-tag-2">Content Growth</span>
+          <span data-edit-id="hero-tag-3">Research Communication</span>
+          <span data-edit-id="hero-tag-4">Trend Strategy</span>
+        </div>
+      </section>
+
+      <div id="pinned-editorial-portfolio-root"></div>
+      <div id="case-scene-gallery-root"></div>
+
+      <section class="manifesto content-section about-portfolio-section" id="legacy-manifesto" aria-labelledby="manifesto-title" data-motion-section>
+        <div class="about-portfolio-panel" data-motion-content>
+          <div class="about-portfolio-visual" aria-hidden="true" data-reveal="media" data-parallax-card>
+            <div class="about-flower-poster">
+              <canvas class="about-flower-liquid-canvas"></canvas>
+              <span class="about-flower-wave"></span>
+              <span class="about-flower-ripple"></span>
+            </div>
+          </div>
+          <div class="about-portfolio-copy">
+            <p class="section-index" data-edit-id="about-index">01 / ABOUT ME</p>
+            <p class="about-project-label">Personal System</p>
+            <h2 id="manifesto-title" data-edit-id="about-title" data-reveal="title">内容不仅是传播工具，更是连接人与技术、商业与未来的重要媒介。</h2>
+            <div class="section-text">
+              <p data-edit-id="about-p1">我毕业于汉语言文学专业，但我的职业路径并没有停留在文字本身。</p>
+              <p data-edit-id="about-p2">从商业运营、内容增长到AI创意项目，我逐渐形成了一套以用户洞察为核心的工作方式：观察用户真实需求，拆解内容背后的情绪、身份与商业动机，再将复杂信息转化为可理解、可传播、可转化的数字内容。</p>
+              <p data-edit-id="about-p3">我习惯把看似混乱的内容现象拆成用户、情绪、身份、场景和商业链路。对我来说，内容不是单纯的发布动作，而是一套从注意力、信任到行动的系统。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section domains-section" id="legacy-domains" aria-labelledby="domains-title" data-motion-section>
+        <div class="domains-exhibition-intro" data-motion-content>
+          <div class="section-heading-row domains-exhibition-copy">
+            <p class="section-index" data-edit-id="domains-index">02 / FOCUS DOMAINS</p>
+            <h2 id="domains-title" data-edit-id="domains-title" data-reveal="title">Fields of Exploration</h2>
+            <p class="domains-exhibition-note" data-edit-id="domains-intro">我长期关注内容增长、AI创意生产、未来媒体与科研传播之间的交叉地带。</p>
+          </div>
+          <div class="domains-visual-stage" aria-hidden="true" data-reveal="media" data-parallax-card>
+            <div class="domains-flow">
+              <div class="domains-flow-base"></div>
+              <div class="domains-flow-current"></div>
+              <div class="domains-flow-glow"></div>
+            </div>
+            <span class="domains-visual-caption">VISUAL RESEARCH / 2026</span>
+          </div>
+        </div>
+        <div class="domain-grid" data-stagger data-motion-content>
+          <article class="domain-card">
+            <span class="domain-meta">01 / AI SYSTEMS</span>
+            <h3 data-edit-id="domain-1-title">Artificial Intelligence</h3>
+            <ul>
+              <li data-edit-id="domain-1-1">AI内容生成</li>
+              <li data-edit-id="domain-1-2">AI视频工作流</li>
+              <li data-edit-id="domain-1-3">AI创意运营</li>
+              <li data-edit-id="domain-1-4">AI应用趋势</li>
+            </ul>
+          </article>
+          <article class="domain-card">
+            <span class="domain-meta">02 / GROWTH LOGIC</span>
+            <h3 data-edit-id="domain-2-title">Content Growth</h3>
+            <ul>
+              <li data-edit-id="domain-2-1">内容增长策略</li>
+              <li data-edit-id="domain-2-2">用户增长路径设计</li>
+              <li data-edit-id="domain-2-3">平台运营体系</li>
+              <li data-edit-id="domain-2-4">内容商业化转化</li>
+            </ul>
+          </article>
+          <article class="domain-card">
+            <span class="domain-meta">03 / NARRATIVE DESIGN</span>
+            <h3 data-edit-id="domain-3-title">Digital Storytelling</h3>
+            <ul>
+              <li data-edit-id="domain-3-1">数字叙事</li>
+              <li data-edit-id="domain-3-2">内容表达系统</li>
+              <li data-edit-id="domain-3-3">视觉沟通</li>
+              <li data-edit-id="domain-3-4">沉浸式体验</li>
+            </ul>
+          </article>
+          <article class="domain-card">
+            <span class="domain-meta">04 / FUTURE INTERFACES</span>
+            <h3 data-edit-id="domain-4-title">Future Media</h3>
+            <ul>
+              <li data-edit-id="domain-4-1">未来媒体研究</li>
+              <li data-edit-id="domain-4-2">互动内容</li>
+              <li data-edit-id="domain-4-3">数字展览</li>
+              <li data-edit-id="domain-4-4">趋势研究</li>
+            </ul>
+          </article>
+          <article class="domain-card">
+            <span class="domain-meta">05 / BRAND SYSTEMS</span>
+            <h3 data-edit-id="domain-5-title">Brand Strategy</h3>
+            <ul>
+              <li data-edit-id="domain-5-1">品牌内容策划</li>
+              <li data-edit-id="domain-5-2">商业叙事构建</li>
+              <li data-edit-id="domain-5-3">市场洞察</li>
+              <li data-edit-id="domain-5-4">跨领域内容整合</li>
+            </ul>
+          </article>
+          <article class="domain-card">
+            <span class="domain-meta">06 / RESEARCH TRANSLATION</span>
+            <h3 data-edit-id="domain-6-title">Scientific Communication</h3>
+            <ul>
+              <li data-edit-id="domain-6-1">科研传播</li>
+              <li data-edit-id="domain-6-2">科普内容设计</li>
+              <li data-edit-id="domain-6-3">复杂概念转译</li>
+              <li data-edit-id="domain-6-4">科研项目商业化传播</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section timeline-section" id="timeline" aria-labelledby="timeline-title" data-motion-section>
+        <div class="timeline-fabric-background" aria-hidden="true">
+          <span class="timeline-fabric-base"></span>
+          <span class="timeline-fabric-motion"></span>
+          <span class="timeline-fabric-veil"></span>
+        </div>
+        <p class="section-index" data-edit-id="timeline-index" data-motion-content>03 / CAREER TIMELINE</p>
+        <div class="section-heading-row" data-motion-content>
+          <h2 id="timeline-title" data-edit-id="timeline-title" data-reveal="title">从文学、商业运营到AI内容增长</h2>
+        </div>
+        <div class="timeline-list" data-stagger data-motion-content>
+          <article class="timeline-item">
+            <div class="timeline-year" data-edit-id="timeline-1-year">2020-2024</div>
+            <div>
+              <h3 data-edit-id="timeline-1-title">汉语言文学 / 长春理工大学光电信息学院</h3>
+              <p class="role" data-edit-id="timeline-1-role">文学研究 / 传播学基础 / 写作与叙事</p>
+              <p data-edit-id="timeline-1-copy">建立信息提炼、用户共情与内容表达能力，也是后来进入内容行业的起点。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-year" data-edit-id="timeline-2-year">2024</div>
+            <div>
+              <h3 data-edit-id="timeline-2-title">北京同仁堂健康药品经营有限公司 / 国企管培生</h3>
+              <p class="role" data-edit-id="timeline-2-role">商业运营 / 销售管理 / 用户服务</p>
+              <p data-edit-id="timeline-2-copy">负责门店运营管理、活动策划执行、数据统计分析、会员体系运营与供应链协调。</p>
+              <ul class="achievement-list">
+                <li data-edit-id="timeline-2-a1">中秋节点门店销售额424万元</li>
+                <li data-edit-id="timeline-2-a2">区域业绩排名第一</li>
+                <li data-edit-id="timeline-2-a3">会员销售占比提升15%</li>
+                <li data-edit-id="timeline-2-a4">库存周转效率提升20%</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-year" data-edit-id="timeline-3-year">2024-2025</div>
+            <div>
+              <h3 data-edit-id="timeline-3-title">内容增长探索阶段 / 小红书个人账号</h3>
+              <p class="role" data-edit-id="timeline-3-role">用户增长 / 内容运营 / 数据复盘</p>
+              <p data-edit-id="timeline-3-copy">独立从0搭建内容体系，形成对内容选题、用户画像、平台算法、数据反馈与增长优化的完整认知。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-year" data-edit-id="timeline-4-year">2025</div>
+            <div>
+              <h3 data-edit-id="timeline-4-title">北美留学生网 / 新媒体运营</h3>
+              <p class="role" data-edit-id="timeline-4-role">内容转化 / 用户咨询 / 商业增长</p>
+              <p data-edit-id="timeline-4-copy">负责美国留学生租房业务小红书运营，搭建“内容 - 咨询 - 转化”的运营链路，旺季月均成交13-15单。</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-year" data-edit-id="timeline-5-year">2025-至今</div>
+            <div>
+              <h3 data-edit-id="timeline-5-title">Hangzhou Chapter / AI内容增长转型</h3>
+              <p class="role" data-edit-id="timeline-5-role">AI视频 / 数字展览 / 科研传播</p>
+              <p data-edit-id="timeline-5-copy">杭州成为职业路径的关键转折：从执行内容运营转向AI内容增长策略，参与AI视频、数字展厅、科研教育传播与品牌内容策划，开始系统连接用户洞察、技术表达和商业转化。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section creative-section" id="legacy-projects" aria-labelledby="projects-title" data-motion-section>
+        <div class="projects-overview" data-motion-content>
+          <p class="section-index" data-edit-id="projects-index">06 / SELECTED PROJECTS</p>
+          <div class="section-heading-row">
+            <h2 id="projects-title" data-edit-id="projects-title" data-reveal="title">Selected Projects</h2>
+            <p data-edit-id="projects-intro">四个核心方向：科研内容增长、国际组织项目增长、AI创意数字展览与agent工作流设计。</p>
+          </div>
+          <div class="creative-grid" id="project-grid" data-stagger></div>
+        </div>
+
+        <div class="project-stories">
+          <article class="project-story research-project-story" id="research-growth">
+            <div class="project-story-copy">
+              <p class="section-index" data-edit-id="project-1-index">PROJECT 01 / CONTENT GROWTH</p>
+              <h2 data-edit-id="project-1-title" data-reveal="title">Scientific Research Content Growth</h2>
+              <h3 data-edit-id="project-1-subtitle">科研教育内容增长体系</h3>
+              <div class="project-facts">
+                <p><strong>时间</strong><span data-edit-id="project-1-time">2025.03 - 2026.08（预计）</span></p>
+                <p><strong>角色</strong><span data-edit-id="project-1-role">内容增长运营 / 用户洞察 / 内容策划</span></p>
+              </div>
+              <blockquote class="project-insight project-insight-research">
+                <span>INSIGHT</span>
+                <p>科研产品信息密度高、决策周期长。用户真正关注的不是课程名称，而是申请价值、未来方向、导师背书和可见成果。</p>
+              </blockquote>
+              <div class="story-block">
+                <h4 data-edit-id="project-1-bg-title">项目背景</h4>
+                <p data-edit-id="project-1-bg">面向美高、美本、海本、国际学校学生与研究生申请群体，处理跨AI、神经科学、生物医学、半导体等方向的高信息密度科研产品。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-1-work-title">我的判断与转译</h4>
+                <p data-edit-id="project-1-work">我将复杂科研项目转译为国际生能理解的内容语言：从热点切入，从专业方向建立价值感，再从申请场景完成转化。内容系统覆盖账号定位、封面视觉、选题规划、趋势研究与咨询链路。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-1-ai-title">AI内容生产</h4>
+                <p data-edit-id="project-1-ai">将ChatGPT、Claude、Midjourney、Sora与Seedance引入内容策划、视频脚本、视觉创意和效率优化流程。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-1-result-title">项目成果</h4>
+                <ul>
+                  <li data-edit-id="project-1-result-1">负责科研与国际组织产品的蓝V及KOS账号矩阵</li>
+                  <li data-edit-id="project-1-result-2">累计验证前沿科研选题、视觉包装与投放素材组合</li>
+                  <li data-edit-id="project-1-result-3">建立内容、投放、私域与销售承接的复盘链路</li>
+                  <li data-edit-id="project-1-result-4">识别高认知用户的产品与销售承接瓶颈</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-evidence-anchor" id="project-1-evidence"></div>
+            <div class="project-media research-media" data-media-id="research-growth" data-reveal="media" data-parallax-card>
+              <div class="research-poster-visual" aria-hidden="true">
+                <div class="research-poster-base"></div>
+                <div class="research-poster-flow"></div>
+                <div class="research-poster-sheen"></div>
+              </div>
+              <div class="project-media-placeholder">
+                <span>项目视觉 / PROJECT VISUAL</span>
+                <small>编辑模式下可替换项目主视觉</small>
+              </div>
+              <button class="media-upload editor-only" type="button" data-upload-media="research-growth">替换项目视觉</button>
+            </div>
+          </article>
+
+          <article class="project-story project-story-reverse" id="international-growth">
+            <div class="international-crowd" aria-label="Interactive global network">
+              <div class="international-crowd-poster" aria-hidden="true"></div>
+              <div class="crowd-layer crowd-layer-a" aria-hidden="true"></div>
+              <div class="crowd-layer crowd-layer-b" aria-hidden="true"></div>
+              <div class="crowd-layer crowd-layer-c" aria-hidden="true"></div>
+              <div class="crowd-layer crowd-layer-d" aria-hidden="true"></div>
+              <button class="country-person" type="button" style="--x: 16%; --y: 8%;" data-country="France / 法国" aria-label="France"><span>France / 法国</span></button>
+              <button class="country-person" type="button" style="--x: 29%; --y: 11%;" data-country="Canada / 加拿大" aria-label="Canada"><span>Canada / 加拿大</span></button>
+              <button class="country-person" type="button" style="--x: 55%; --y: 18%;" data-country="China / 中国" aria-label="China"><span>China / 中国</span></button>
+              <button class="country-person" type="button" style="--x: 68%; --y: 13%;" data-country="Japan / 日本" aria-label="Japan"><span>Japan / 日本</span></button>
+              <button class="country-person" type="button" style="--x: 89%; --y: 12%;" data-country="United Kingdom / 英国" aria-label="United Kingdom"><span>United Kingdom / 英国</span></button>
+              <button class="country-person" type="button" style="--x: 11%; --y: 35%;" data-country="Germany / 德国" aria-label="Germany"><span>Germany / 德国</span></button>
+              <button class="country-person" type="button" style="--x: 54%; --y: 35%;" data-country="India / 印度" aria-label="India"><span>India / 印度</span></button>
+              <button class="country-person" type="button" style="--x: 82%; --y: 34%;" data-country="South Korea / 韩国" aria-label="South Korea"><span>South Korea / 韩国</span></button>
+              <button class="country-person" type="button" style="--x: 93%; --y: 29%;" data-country="Brazil / 巴西" aria-label="Brazil"><span>Brazil / 巴西</span></button>
+              <button class="country-person" type="button" style="--x: 29%; --y: 58%;" data-country="Australia / 澳大利亚" aria-label="Australia"><span>Australia / 澳大利亚</span></button>
+              <button class="country-person" type="button" style="--x: 48%; --y: 56%;" data-country="United Arab Emirates / 阿联酋" aria-label="United Arab Emirates"><span>United Arab Emirates / 阿联酋</span></button>
+              <button class="country-person" type="button" style="--x: 52%; --y: 75%;" data-country="United States / 美国" aria-label="United States"><span>United States / 美国</span></button>
+              <button class="country-person" type="button" style="--x: 68%; --y: 77%;" data-country="Switzerland / 瑞士" aria-label="Switzerland"><span>Switzerland / 瑞士</span></button>
+              <button class="country-person" type="button" style="--x: 87%; --y: 76%;" data-country="Netherlands / 荷兰" aria-label="Netherlands"><span>Netherlands / 荷兰</span></button>
+              <p class="country-network-status" aria-live="polite">GLOBAL NETWORK / 点击人物探索国家</p>
+            </div>
+            <div class="project-story-copy">
+              <p class="section-index" data-edit-id="project-2-index">PROJECT 02 / INTERNATIONAL ORGANIZATIONS</p>
+              <h2 data-edit-id="project-2-title" data-reveal="title">International Organizations Content Growth</h2>
+              <h3 data-edit-id="project-2-subtitle">国际组织与联合国项目增长体系</h3>
+              <div class="project-facts">
+                <p><strong>时间</strong><span data-edit-id="project-2-time">2025 - 2026</span></p>
+                <p><strong>角色</strong><span data-edit-id="project-2-role">内容策略 / 视觉策划 / 增长运营</span></p>
+              </div>
+              <blockquote class="project-insight project-insight-un">
+                <span>CORE INSIGHT</span>
+                <p>学生购买的不是旅游目的地，而是国际组织履历、身份想象和未来路径。</p>
+              </blockquote>
+              <div class="insight-comparison">
+                <div>
+                  <span>行业常见表达</span>
+                  <strong>雪山 / 袋鼠 / 地标 / 旅行感</strong>
+                </div>
+                <div>
+                  <span>我的判断</span>
+                  <strong>机会 / 履历 / 身份 / 未来路径</strong>
+                </div>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-2-bg-title">项目背景</h4>
+                <p data-edit-id="project-2-bg">面向国际生、海外本科与研究生申请群体，推广联合国实习、NGO项目、国际组织背景提升与全球治理方向项目。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-2-work-title">我的工作</h4>
+                <p data-edit-id="project-2-work">参与账号从0到1冷启动，完成人设定位、视觉风格和内容框架设计。将视觉重心从目的地想象转向职业机会、国际组织履历与成长路径，重构用户认知和点击动机。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-2-growth-title">用户转化与商业化</h4>
+                <p data-edit-id="project-2-growth">围绕国际组织职业发展、联合国职业路径、YPP、JPO与NGO经历建立内容矩阵，打通“内容 - 咨询 - 销售”获客链路。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-2-result-title">项目成果</h4>
+                <ul>
+                  <li data-edit-id="project-2-result-1">参与联合国项目账号冷启动</li>
+                  <li data-edit-id="project-2-result-2">完成视觉体系重构</li>
+                  <li data-edit-id="project-2-result-3">爆款内容带来精准咨询用户</li>
+                  <li data-edit-id="project-2-result-4">相关内容产生实际付费转化</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-evidence-anchor international-evidence-anchor" id="project-2-evidence"></div>
+            <div class="project-media international-media" data-media-id="international-growth" data-reveal="media" data-parallax-card>
+              <div class="project-media-placeholder">
+                <span>账号截图 / ACCOUNT SCREENSHOT</span>
+                <small>编辑模式下点击此处，可一次选择多张图片</small>
+              </div>
+              <button class="media-upload editor-only" type="button" data-upload-media="international-growth">添加多张图片</button>
+            </div>
+          </article>
+
+          <article class="project-story" id="quantum-exhibition">
+            <div class="quantum-map quantum-map-background" aria-label="Interactive astronomical map">
+              <button class="quantum-orb" type="button" style="--x: 29%; --y: 32%;" aria-label="Betelgeuse"><span>Betelgeuse</span></button>
+              <button class="quantum-orb" type="button" style="--x: 41%; --y: 38%;" aria-label="Rigel"><span>Rigel</span></button>
+              <button class="quantum-orb" type="button" style="--x: 44%; --y: 42%;" aria-label="Procyon"><span>Procyon</span></button>
+              <button class="quantum-orb" type="button" style="--x: 48%; --y: 35%;" aria-label="Antares"><span>Antares</span></button>
+              <button class="quantum-orb" type="button" style="--x: 58%; --y: 43%;" aria-label="Alpha Centauri A"><span>Alpha Centauri</span></button>
+              <button class="quantum-orb" type="button" style="--x: 66%; --y: 30%;" aria-label="Aldebaran"><span>Aldebaran</span></button>
+              <button class="quantum-orb" type="button" style="--x: 70%; --y: 36%;" aria-label="Ran"><span>Ran</span></button>
+              <button class="quantum-orb" type="button" style="--x: 28%; --y: 74%;" aria-label="Pluto"><span>Pluto</span></button>
+              <button class="quantum-orb" type="button" style="--x: 36%; --y: 82%;" aria-label="Neptune"><span>Neptune</span></button>
+              <button class="quantum-orb" type="button" style="--x: 54%; --y: 86%;" aria-label="Uranus"><span>Uranus</span></button>
+              <button class="quantum-orb" type="button" style="--x: 69%; --y: 79%;" aria-label="Saturn"><span>Saturn</span></button>
+              <button class="quantum-orb" type="button" style="--x: 86%; --y: 87%;" aria-label="Jupiter"><span>Jupiter</span></button>
+            </div>
+            <div class="project-story-copy">
+              <p class="section-index" data-edit-id="project-3-index">PROJECT 03 / AI & CREATIVE</p>
+              <h2 data-edit-id="project-3-title" data-reveal="title">Quantum Digital Exhibition</h2>
+              <h3 data-edit-id="project-3-subtitle">AI视频创作与量子数字展厅</h3>
+              <div class="quantum-proof">
+                <p><strong>Concept</strong><span data-edit-id="project-3-direction">量子概念可视化</span></p>
+                <p><strong>Tool</strong><span data-edit-id="project-3-role">AI视频生成 / 图像生成 / 后期剪辑</span></p>
+                <p><strong>Value</strong><span data-edit-id="project-3-bg">将科学概念转化为沉浸式展厅内容</span></p>
+              </div>
+            </div>
+            <div class="project-media quantum-media" data-media-id="quantum-exhibition" data-reveal="media" data-parallax-card>
+              <p class="quantum-appendix-label">项目附录 / PROJECT APPENDIX</p>
+              <div class="project-media-placeholder">
+                <span>项目画面 / PROJECT VISUAL</span>
+                <small>编辑模式下点击此处，可一次选择多张图片</small>
+              </div>
+              <button class="media-upload editor-only" type="button" data-upload-media="quantum-exhibition">添加多张图片</button>
+            </div>
+          </article>
+
+          <article class="project-story agent-workflow-story" id="agent-workflow-design">
+            <div class="project-story-copy">
+              <p class="section-index" data-edit-id="project-4-index">PROJECT 04 / AI TOOL WORKFLOW</p>
+              <h2 data-edit-id="project-4-title" data-reveal="title">Agent Workflow Design System</h2>
+              <h3 data-edit-id="project-4-subtitle">AI工具方法论与插件化工作流案例</h3>
+              <div class="project-facts agent-workflow-facts">
+                <p><strong>Source</strong><span data-edit-id="project-4-source">Superpowers open-source skill framework</span></p>
+                <p><strong>Role</strong><span data-edit-id="project-4-role">产品叙事 / 信息架构 / workflow转译</span></p>
+              </div>
+              <blockquote class="project-insight agent-workflow-insight">
+                <span>STRATEGY</span>
+                <p>把一个偏工程的agent技能仓库，转译成可被作品集访客理解的AI工具案例：它展示的不是页面运行效果，而是规划、测试、调试、审查与交付如何被组织成稳定流程。</p>
+              </blockquote>
+              <div class="agent-workflow-map" aria-label="Agent workflow stages">
+                <div><span>01</span><strong>Brainstorm</strong><em>从模糊想法进入需求澄清</em></div>
+                <div><span>02</span><strong>Plan</strong><em>把设计拆成可执行任务</em></div>
+                <div><span>03</span><strong>Build</strong><em>用TDD与子任务推进实现</em></div>
+                <div><span>04</span><strong>Review</strong><em>通过代码审查和验证收尾</em></div>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-4-bg-title">为什么放进作品集</h4>
+                <p data-edit-id="project-4-bg">原仓库不适合作为可运行前端项目展示，但它非常适合转译成“AI工具/工作流设计”案例。它能证明我理解AI产品不只是生成内容，更重要的是如何设计可靠的人机协作流程。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-4-work-title">我的转译方式</h4>
+                <p data-edit-id="project-4-work">我从README、插件清单与skills目录中提取产品叙事，将“技能包、hook、agent workflow、TDD、debugging、code review”等工程概念，重新组织为面向非工程访客也能理解的案例结构。</p>
+              </div>
+              <div class="story-block">
+                <h4 data-edit-id="project-4-value-title">展示价值</h4>
+                <ul>
+                  <li data-edit-id="project-4-value-1">体现AI工具信息架构与复杂概念转译能力</li>
+                  <li data-edit-id="project-4-value-2">补足作品集中“工作流设计”维度</li>
+                  <li data-edit-id="project-4-value-3">连接AI内容增长、自动化协作与产品叙事</li>
+                  <li data-edit-id="project-4-value-4">将开源项目从工程素材转化为可读案例</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-media agent-workflow-media" data-media-id="agent-workflow-design" data-reveal="media" data-parallax-card>
+              <div class="agent-console-visual" aria-hidden="true">
+                <div class="agent-console-top">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="agent-console-grid">
+                  <span>skill</span>
+                  <strong>brainstorming</strong>
+                  <em>intent to spec</em>
+                  <span>skill</span>
+                  <strong>writing-plans</strong>
+                  <em>spec to tasks</em>
+                  <span>skill</span>
+                  <strong>tdd</strong>
+                  <em>red green refactor</em>
+                  <span>skill</span>
+                  <strong>code-review</strong>
+                  <em>verify delivery</em>
+                </div>
+                <div class="agent-console-flow">
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </div>
+              </div>
+              <div class="project-media-placeholder">
+                <span>WORKFLOW CASE / AI TOOL SYSTEM</span>
+                <small>可补充插件结构截图、README标注或流程图</small>
+              </div>
+              <button class="media-upload editor-only" type="button" data-upload-media="agent-workflow-design">添加多张图片</button>
+            </div>
+          </article>
+        </div>
+        <input id="case-media-input" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden>
+      </section>
+
+      <section class="content-section insights-section" aria-labelledby="statement-title" data-motion-section>
+        <div class="statement-panel" data-motion-content>
+          <div class="statement-copy">
+            <p class="section-index" data-edit-id="statement-index">07 / PERSONAL STATEMENT</p>
+            <h2 id="statement-title" data-edit-id="statement-title" data-reveal="title">我对“标准答案”兴趣不大。</h2>
+            <div class="section-text">
+              <p data-edit-id="statement-p1">相比于遵循既定路径，我更喜欢观察系统如何运转：用户为什么点击，内容为什么被相信，技术如何改变表达，商业价值又如何在其中生成。</p>
+              <p class="closing-quote" data-edit-id="statement-p2">抽刀断水水更流。</p>
+              <p data-edit-id="statement-p3">我无法停止信息流动，但可以研究它如何流向人、信任与行动。</p>
+            </div>
+          </div>
+          <div class="statement-visual" aria-hidden="true" data-reveal="media" data-parallax-card>
+            <img src="assets/statement-feed-poster.png" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section content-section" id="legacy-contact" aria-labelledby="contact-title" data-motion-section>
+        <p class="section-index" data-edit-id="contact-index" data-motion-content>08 / CONTACT</p>
+        <div class="contact-layout" data-motion-content>
+          <div>
+            <h2 id="contact-title" data-edit-id="contact-title" data-reveal="title">Let's Build Influence</h2>
+            <p data-edit-id="contact-copy">如果你关注AI内容增长、数字创意项目、科研传播、品牌叙事或未来媒体，欢迎联系。</p>
+          </div>
+          <div class="contact-links">
+            <a href="#" data-edit-id="contact-wechat">微信 / WeChat</a>
+            <a href="https://www.xiaohongshu.com/" target="_blank" rel="noreferrer" data-edit-id="contact-xhs">小红书 / Xiaohongshu</a>
+            <a href="mailto:hello@example.com" data-edit-id="contact-email">邮箱 / Email</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <span data-edit-id="footer-1">Artificial Intelligence</span>
+        <span data-edit-id="footer-2">Content Growth</span>
+        <span data-edit-id="footer-3">AI Creative Production</span>
+        <span data-edit-id="footer-4">Digital Storytelling</span>
+        <span data-edit-id="footer-5">Future Media</span>
+      </div>
+      <p data-edit-id="footer-copy">Designed as a Digital Exhibition. Asia / 2026</p>
+    </footer>
+
+    <div class="project-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="overlay-title">
+      <button class="overlay-close" type="button" aria-label="关闭项目详情">X</button>
+      <div class="overlay-visual" id="overlay-visual" aria-hidden="true"></div>
+      <div class="overlay-content">
+        <p class="section-index" id="overlay-category">Selected Project</p>
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-copy"></p>
+        <a class="project-link" id="overlay-link" href="#" target="_blank" rel="noreferrer">访问项目</a>
+      </div>
+    </div>
+
+<script src="components/PortfolioArchive.data.js?v=20260714-ai-video-dual-2"></script>
+<script src="components/PortfolioArchive.js?v=20260714-ai-video-dual-2"></script>
+  <script src="script.js?v=20260710-library-gap-final2"></script>
+    <script>
+      window.addEventListener("load", () => {
+        if (!window.location.hash) return;
+        [120, 520, 1100].forEach((delay) => {
+          window.setTimeout(() => {
+            document.querySelector(window.location.hash)?.scrollIntoView({ block: "start" });
+          }, delay);
+        });
+      });
+    </script>
+  </body>
+</html>

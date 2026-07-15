@@ -1,0 +1,165 @@
+:root {
+  --font-display: "Helvetica Neue", "Inter Tight", Arial, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --font-body: "Helvetica Neue", "Inter Tight", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", Arial, sans-serif;
+  --font-cn: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --font-sans: var(--font-body);
+}
+
+body {
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+}
+
+.brand {
+  font-family: var(--font-cn);
+  letter-spacing: 0;
+}
+
+#hero-title,
+.pep-title-mask h2,
+.light-section-heading h2,
+.profile-title h2,
+.contact-showcase h2,
+.content-library-heading h2,
+.cetus-module-heading h3,
+.cetus-gallery-intro h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+#hero-title {
+  line-height: 0.84;
+  letter-spacing: -0.06em;
+}
+
+.pep-case-number,
+.pep-metric-item strong,
+.pep-evidence-number,
+.case-data-value span,
+.case-data-value em {
+  font-family: var(--font-display);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.project-visual-caption strong,
+.project-evidence-card h3,
+.strategy-case-card h3,
+.data-evidence-copy h3,
+.content-library-copy h3,
+.pep-project-evidence h3,
+.pep-method-item h3,
+.capability-card h3,
+.service-card h3 {
+  font-family: var(--font-display);
+  font-weight: 750;
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+
+.nav-links,
+.kicker,
+.section-index,
+.light-section-label,
+.domain-meta,
+.case-number,
+.project-card-type,
+.pep-case-label,
+.pep-eyebrow,
+.pep-evidence-label,
+.cetus-kicker,
+.cetus-dashboard-label span,
+.cetus-growth-insight > span,
+.cetus-resume-proof > span,
+.cetus-evidence-principle > span,
+.content-library-copy > span,
+.content-library-filters,
+.gallery-edit-actions button,
+.gallery-edit-floating,
+.primary-cta,
+.scroll-cue {
+  font-family: var(--font-display);
+  font-size: clamp(9px, 0.72vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  gap: clamp(1rem, 2.2vw, 2.25rem);
+}
+
+.hero-meta {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-subhead,
+.hero-description,
+.light-section-heading p,
+.projects-heading-copy p,
+.profile-copy-card p,
+.contact-showcase p,
+.content-library-heading > p:last-child,
+.content-library-copy p,
+.cetus-module-heading > p:last-child,
+.cetus-gallery-intro > p:last-child {
+  font-family: var(--font-body);
+  letter-spacing: -0.01em;
+  line-height: 1.55;
+}
+
+.hero-description,
+.projects-heading-copy p,
+.profile-copy-card p,
+.content-library-copy p {
+  font-size: clamp(13px, 1vw, 15px);
+}
+
+.pep-description,
+.pep-project-evidence p,
+.pep-method-item p,
+.pep-metric-item p,
+.content-library-copy strong,
+.project-card-tags,
+.cetus-account-card small {
+  font-family: var(--font-body);
+  font-size: clamp(10px, 0.78vw, 12px);
+  letter-spacing: -0.005em;
+  line-height: 1.45;
+}
+
+.content-library-filters button {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  #hero-title {
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+  }
+
+  .light-section-heading h2,
+  .profile-title h2,
+  .contact-showcase h2,
+  .content-library-heading h2,
+  .cetus-module-heading h3,
+  .cetus-gallery-intro h3 {
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+  }
+
+  .nav-links {
+    gap: 0.9rem;
+  }
+}
