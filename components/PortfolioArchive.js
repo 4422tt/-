@@ -358,8 +358,8 @@
           <h2 id="archive-contact-title">Let's build future-facing content systems.</h2>
           <p class="archive-title-cn">${data.sectionTranslations.contact}</p>
           <div class="archive-contact-links">
-            <a href="mailto:hello@example.com">Email<span>邮箱</span></a>
-            <a href="#contact">WeChat<span>微信</span></a>
+            <a href="mailto:15944075696@139.com">Email<span>15944075696@139.com</span></a>
+            <a href="#contact">WeChat<span>Heyits42</span></a>
             <a href="https://www.xiaohongshu.com/" target="_blank" rel="noreferrer">Xiaohongshu<span>小红书</span></a>
           </div>
         </div>

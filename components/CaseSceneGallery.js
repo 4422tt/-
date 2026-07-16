@@ -648,8 +648,8 @@
             <p>Interested in AI content growth, research communication, tech trend translation or future media? Let's connect.</p>
           </div>
           <div class="contact-card-grid">
-            <a href="mailto:" class="contact-card">Email <span>→</span></a>
-            <a href="#contact" class="contact-card">WeChat <span>→</span></a>
+            <a href="mailto:15944075696@139.com" class="contact-card">Email <span>15944075696@139.com</span></a>
+            <a href="#contact" class="contact-card">WeChat <span>Heyits42</span></a>
             <a href="#contact" class="contact-card">Xiaohongshu <span>→</span></a>
           </div>
         </div>
