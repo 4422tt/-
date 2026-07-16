@@ -265,9 +265,7 @@
                   <div class="cetus-added-media" data-media-id="${group.editId}">
                     <div class="project-media-placeholder">
                       <span>附加证据 / ADDITIONAL EVIDENCE</span>
-                      <small>编辑模式下可继续添加属于此账号类别的截图</small>
                     </div>
-                    <button class="media-upload editor-only" type="button" data-upload-media="${group.editId}">添加本类截图</button>
                   </div>
                 </article>
               `,
@@ -335,9 +333,7 @@
               <div class="cetus-system-add cetus-added-media" data-media-id="${layer.editId}">
                 <div class="project-media-placeholder">
                   <span>ADDITIONAL EVIDENCE</span>
-                  <small>编辑模式下可添加同一账号或内容层的补充截图</small>
                 </div>
-                <button class="media-upload editor-only" type="button" data-upload-media="${layer.editId}">添加证据</button>
               </div>
             </article>
           `).join("")}

@@ -287,13 +287,7 @@
     },
   ];
 
-  const renderGalleryEditPanel = () => `
-    <div class="gallery-edit-panel" aria-label="Gallery edit controls">
-      <button type="button" data-gallery-edit-entry>${editorAccess ? "添加照片" : "进入编辑模式"}</button>
-      <span>${editorAccess ? "可给每张项目卡添加多张图片，当前卡片会显示最新一张。" : "打开编辑模式后，可直接给项目展厅添加图片。"}</span>
-      <em data-gallery-edit-status></em>
-    </div>
-  `;
+  const renderGalleryEditPanel = () => "";
 
   const projectTagSets = [
     ["Paid Acquisition", "Lead Evidence", "Research Product"],
@@ -519,7 +513,6 @@
 
   root.innerHTML = `
     <div class="case-study-gallery${editorAccess ? " is-gallery-editing" : ""}" aria-label="Light editorial portfolio sections">
-      <a class="gallery-edit-floating" href="${editorAccess ? "#projects" : "?edit=1#projects"}">${editorAccess ? "编辑模式：添加照片 / 数据" : "进入编辑模式"}</a>
       <section class="light-case-section project-showcase" id="projects" aria-labelledby="projects-showcase-title" data-cinematic-word="PROJECTS">
         <div class="light-section-shell">
           <div class="light-section-heading">
