@@ -768,6 +768,21 @@ function setupCinematicScrollScenes() {
   window.addEventListener("resize", requestUpdate);
 }
 
+function setupHeroVideoPlayback() {
+  const video = document.querySelector(".hero-feature-video");
+  if (!video || reduceMotion) return;
+
+  const playVideo = () => video.play().catch(() => {});
+  video.muted = true;
+  video.defaultMuted = true;
+  video.playsInline = true;
+  playVideo();
+
+  window.addEventListener("pageshow", playVideo);
+  document.addEventListener("WeixinJSBridgeReady", playVideo, false);
+  document.addEventListener("touchstart", playVideo, { once: true, passive: true });
+}
+
 function setupGsapEditorialScenes() {
   if (reduceMotion || !window.gsap || !window.ScrollTrigger) return;
 
@@ -1290,6 +1305,7 @@ setupInternationalMap();
 setupSectionReveal();
 setupNavigationMotion();
 setupCinematicScrollScenes();
+setupHeroVideoPlayback();
 setupGsapEditorialScenes();
 resizeCanvas();
 drawScene();

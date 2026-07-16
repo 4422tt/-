@@ -5465,3 +5465,48 @@ html.is-cinematic-scroll .hero .scroll-cue {
     filter: saturate(1) contrast(1.03) brightness(1.02);
   }
 }
+
+/* Mobile hero: keep the living image legible in narrow, in-app browsers. */
+@media (max-width: 680px) and (prefers-reduced-motion: no-preference) {
+  .hero-video-art {
+    top: 7.25rem;
+    right: -5.5rem;
+    width: 26rem;
+    height: 72%;
+    min-height: 34rem;
+    opacity: 0.56;
+    animation: hero-mobile-art-float 10s ease-in-out infinite alternate;
+  }
+
+  .hero-feature-video {
+    animation: hero-mobile-video-drift 12s ease-in-out infinite alternate;
+    transform-origin: 62% 48%;
+  }
+
+  .hero-video-art::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(116deg, transparent 32%, rgba(103, 199, 213, 0.2) 48%, transparent 65%);
+    mix-blend-mode: screen;
+    animation: hero-mobile-light-sweep 7.5s ease-in-out infinite;
+  }
+}
+
+@keyframes hero-mobile-art-float {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-1.6rem, -0.75rem, 0); }
+}
+
+@keyframes hero-mobile-video-drift {
+  from { transform: scale(1.04) translate3d(0, 0, 0); }
+  to { transform: scale(1.13) translate3d(-2.5%, -1.5%, 0); }
+}
+
+@keyframes hero-mobile-light-sweep {
+  0%, 18% { opacity: 0; transform: translateX(-22%); }
+  48% { opacity: 0.72; }
+  78%, 100% { opacity: 0; transform: translateX(24%); }
+}
