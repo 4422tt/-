@@ -106,7 +106,7 @@
             <div><dt>${bilingualLabel("USE", "素材用途")}</dt><dd>${slot.note}</dd></div>
             <div><dt>${bilingualLabel("CHECK", "发布前检查")}</dt><dd>${slot.privacy}</dd></div>
           </dl>
-          <small>${hasUploadedMedia ? `${uploadedFiles.length} Asset${uploadedFiles.length > 1 ? "s" : ""} Added / 已添加 ${uploadedFiles.length} 份素材` : (hasPlaceholder ? `${placeholderSources.length} Curated Asset${placeholderSources.length > 1 ? "s" : ""} / 已归档素材，可在编辑模式替换` : "Asset Pending / 待补素材")}</small>
+          <small>${hasUploadedMedia ? `${uploadedFiles.length} Asset${uploadedFiles.length > 1 ? "s" : ""} Added / 已添加 ${uploadedFiles.length} 份素材` : (hasPlaceholder ? `${placeholderSources.length} Curated Asset${placeholderSources.length > 1 ? "s" : ""} / 已归档素材` : "Asset Pending / 待补素材")}</small>
         </div>
         ${editorAccess ? `
           <div class="asset-slot-actions">

@@ -61,8 +61,6 @@
   const metricItems = [
     ["Commercial Operation", "424", "万", "门店节点销售额，区域排名第一", "metric-1-label"],
     ["Content Experiment", "10000", "+", "个人小红书账号两个月累计点赞量", "metric-2-label"],
-    ["Conversion Growth", "15", "%", "个人成单率高于团队平均水平约15%", "metric-3-label"],
-    ["Operation Efficiency", "20", "%", "库存周转效率提升", "metric-4-label"],
   ];
 
   const supportingPanels = [

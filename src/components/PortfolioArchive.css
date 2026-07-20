@@ -2089,7 +2089,7 @@
 }
 
 .archive-narrative-lab .asset-slot.has-placeholder .asset-slot-copy > small::after {
-  content: "Placeholder visual / 示例视觉，可在编辑模式替换";
+  content: "Placeholder visual / 示例视觉";
   color: var(--archive-muted);
   font-size: 0.64rem;
   letter-spacing: 0.06em;

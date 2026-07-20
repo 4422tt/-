@@ -2595,7 +2595,7 @@ h3 {
 }
 
 .quantum-media .project-media-placeholder::after {
-  content: "编辑模式下上传 · 支持左右滑动";
+  content: "支持左右滑动";
   color: var(--muted);
   font-size: 0.82rem;
 }
@@ -2803,7 +2803,7 @@ h3 {
 }
 
 .is-editing .project-media:not(.has-image)::before {
-  content: "点击此处添加多张图片";
+  content: "";
   position: absolute;
   z-index: 4;
   inset: 1rem;
