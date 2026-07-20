@@ -132,6 +132,7 @@ function mergeDefaultProjects(projects = []) {
 }
 
 function loadState() {
+  if (!editorAccess) return { content: {}, projects: defaultProjects, media: {}, contentRevision: CONTENT_REVISION };
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
     return {
