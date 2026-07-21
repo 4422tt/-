@@ -7,6 +7,7 @@
   const editorAccess = new URLSearchParams(window.location.search).get("edit") === "1";
 
   const readMedia = () => {
+    if (!editorAccess) return {};
     try {
       return JSON.parse(localStorage.getItem(MEDIA_KEY) || "{}");
     } catch {
@@ -75,6 +76,7 @@
     const fallbackMedia = placeholderSources.map((src) => ({
       src,
       type: /\.(mp4|webm|mov)(?:[?#]|$)/i.test(src) ? "video/mp4" : "image/placeholder",
+      placeholder: true,
     }));
     const media = files.length ? files : fallbackMedia;
     if (!media.length) return "";
@@ -82,7 +84,12 @@
       if (file.type?.startsWith("video")) {
         return `<video src="${file.src}" muted autoplay loop playsinline controls preload="metadata" aria-label="${slot.title} ${index + 1}"></video>`;
       }
-      return `<img src="${file.src}" alt="${slot.title} ${index + 1}" loading="lazy" decoding="async">`;
+      const mobileSrc = file.placeholder
+        ? file.src.replace(/^assets\//, "assets/mobile/").replace(/\.(png|jpe?g)([?#].*)?$/i, ".jpg$2")
+        : file.src;
+      const fetchPriority = file.placeholder && index < 2 ? "high" : "auto";
+      const loading = file.placeholder ? "eager" : "lazy";
+      return `<picture><source media="(max-width: 760px)" srcset="${mobileSrc}"><img src="${file.src}" alt="${slot.title} ${index + 1}" loading="${loading}" decoding="async" fetchpriority="${fetchPriority}"></picture>`;
     }).join("");
   };
 
