@@ -6,10 +6,18 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f1115'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='white'%3EGX%3C/text%3E%3C/svg%3E">
     <title>郭宣潼 | AI Content Growth Strategist</title>
     <meta name="description" content="郭宣潼的内容增长与AI创意案例，聚焦科研传播、国际组织项目、未来媒体与数字叙事。">
-    <link rel="stylesheet" href="styles.css?v=20260720-hr-clean-2">
-  <link rel="stylesheet" href="src/components/PortfolioArchive.css?v=20260721-mobile-stable-1">
-    <link rel="stylesheet" href="src/styles/portfolio-motion.css">
-    <link rel="stylesheet" href="src/styles/fashion-typography.css?v=20260709-1">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="郭宣潼 | AI Content Growth Strategist">
+    <meta property="og:description" content="内容增长与AI创意案例：科研传播、国际组织项目、未来媒体与数字叙事。">
+    <meta property="og:url" content="https://4422tt.github.io/-/">
+    <meta property="og:image" content="https://4422tt.github.io/-/assets/mobile/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://4422tt.github.io/-/assets/mobile/og-image.jpg">
+    <noscript><style>.hero { background: #101010; } #exhibition-canvas { display: none; }</style></noscript>
+    <link rel="stylesheet" href="styles.css?v=20260726-review-1">
+  <link rel="stylesheet" href="src/components/PortfolioArchive.css?v=20260726-review-1">
+    <link rel="stylesheet" href="src/styles/portfolio-motion.css?v=20260726-review-1">
+    <link rel="stylesheet" href="src/styles/fashion-typography.css?v=20260726-review-1">
   </head>
   <body>
     <svg class="svg-filters" aria-hidden="true" focusable="false">
@@ -65,7 +73,7 @@
           </a>
         </div>
         <div class="hero-art hero-video-art" aria-hidden="true">
-          <video class="hero-feature-video" autoplay muted loop playsinline preload="auto">
+          <video class="hero-feature-video" autoplay muted loop playsinline preload="metadata" poster="assets/mobile/hero-video-poster.jpg">
             <source src="pinterest-15551561210544949.mp4" type="video/mp4">
           </video>
           <span class="hero-video-vignette"></span>
@@ -493,7 +501,7 @@
             </div>
           </div>
           <div class="statement-visual" aria-hidden="true" data-reveal="media" data-parallax-card>
-            <img src="assets/statement-feed-poster.png" alt="">
+            <picture><source media="(max-width: 760px)" srcset="assets/mobile/statement-feed-poster.jpg"><img src="assets/statement-feed-poster.png" alt="" loading="lazy" decoding="async"></picture>
           </div>
         </div>
       </section>
@@ -536,15 +544,18 @@
       </div>
     </div>
 
-<script src="components/PortfolioArchive.data.js?v=20260714-ai-video-dual-2"></script>
-<script src="components/PortfolioArchive.js?v=20260721-mobile-stable-1"></script>
-  <script src="script.js?v=20260720-public-clean-1"></script>
+<script src="components/PortfolioArchive.data.js?v=20260726-review-1"></script>
+<script src="components/PortfolioArchive.js?v=20260726-review-1"></script>
+  <script src="script.js?v=20260726-review-1"></script>
     <script>
       window.addEventListener("load", () => {
         if (!window.location.hash) return;
+        let hashTarget = null;
+        try { hashTarget = document.getElementById(decodeURIComponent(window.location.hash.slice(1))); } catch { hashTarget = null; }
+        if (!hashTarget) return;
         [120, 520, 1100].forEach((delay) => {
           window.setTimeout(() => {
-            document.querySelector(window.location.hash)?.scrollIntoView({ block: "start" });
+            hashTarget.scrollIntoView({ block: "start" });
           }, delay);
         });
       });

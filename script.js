@@ -3,7 +3,8 @@ const CONTENT_REVISION = 7;
 const canvas = document.querySelector("#exhibition-canvas");
 const ctx = canvas.getContext("2d");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const editorAccess = new URLSearchParams(window.location.search).get("edit") === "1";
+const editorHostAllowed = window.location.protocol === "file:" || ["localhost", "127.0.0.1", "[::1]"].includes(window.location.hostname);
+const editorAccess = editorHostAllowed && new URLSearchParams(window.location.search).get("edit") === "1";
 
 function mountEditorInterface() {
   if (!editorAccess) return;
@@ -115,11 +116,11 @@ function normalizeMedia(media = {}) {
 
 function escapeHtml(value = "") {
   return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function mergeDefaultProjects(projects = []) {
@@ -477,10 +478,14 @@ function setupAboutFlowerMotion() {
     requestAnimationFrame(drawLiquidFrame);
   };
 
-  const observer = new IntersectionObserver((entries) => {
-    isVisible = entries.some((entry) => entry.isIntersecting);
-  }, { threshold: 0.05 });
-  observer.observe(poster);
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries.some((entry) => entry.isIntersecting);
+    }, { threshold: 0.05 });
+    observer.observe(poster);
+  } else {
+    isVisible = true;
+  }
 
   image.addEventListener("load", () => {
     liquidCanvas.width = renderWidth;
@@ -583,6 +588,7 @@ function setupInternationalMap() {
 function setupSectionReveal() {
   if (document.documentElement.classList.contains("portfolio-motion-enabled")) return;
   if (reduceMotion) return;
+  if (!("IntersectionObserver" in window)) return;
   document.documentElement.classList.add("js-reveal");
   const targets = [
     ".section-heading-row",
@@ -1164,14 +1170,6 @@ function drawScene(time = 0) {
   if (!reduceMotion) requestAnimationFrame(drawScene);
 }
 
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;");
-}
-
 function renderProjects() {
   const grid = document.querySelector("#project-grid");
   grid.innerHTML = state.projects
@@ -1181,7 +1179,7 @@ function renderProjects() {
         <button class="creative-tile ${project.image ? "has-image" : ""}" type="button" data-project-id="${escapeHtml(project.id)}" ${imageStyle}>
           <span>${String(index + 1).padStart(2, "0")} / ${escapeHtml(project.category)}</span>
           <strong>${escapeHtml(project.title)}</strong>
-          <em class="edit-project-label">编辑项目</em>
+          ${editorAccess ? '<em class="edit-project-label">编辑项目</em>' : ""}
         </button>
       `;
     })
@@ -1283,6 +1281,7 @@ function importData(file) {
         content: imported.content,
         projects: imported.projects,
         media: normalizeMedia(imported.media),
+        contentRevision: typeof imported.contentRevision === "number" ? imported.contentRevision : CONTENT_REVISION,
       };
       saveState();
       restoreEditableContent();
@@ -1312,7 +1311,7 @@ resizeCanvas();
 drawScene();
 window.addEventListener("resize", resizeCanvas);
 
-const counterObserver = new IntersectionObserver((entries, observer) => {
+const counterObserver = !("IntersectionObserver" in window) ? null : new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
     if (!entry.isIntersecting) return;
     const element = entry.target;
@@ -1330,7 +1329,14 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
     observer.unobserve(element);
   });
 }, { threshold: 0.35 });
-document.querySelectorAll("[data-counter]").forEach((counter) => counterObserver.observe(counter));
+document.querySelectorAll("[data-counter]").forEach((counter) => {
+  if (counterObserver) {
+    counterObserver.observe(counter);
+  } else {
+    const target = Number(counter.dataset.counter) || 0;
+    counter.textContent = `${new Intl.NumberFormat("zh-CN").format(target)}${counter.dataset.suffix || ""}`;
+  }
+});
 
 if (editorAccess) {
   document.querySelector("#toggle-edit").addEventListener("click", () => setEditMode(!editMode));

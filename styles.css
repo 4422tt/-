@@ -150,6 +150,7 @@ main,
 
 .hero {
   position: relative;
+  min-height: 100vh;
   min-height: 100svh;
   display: grid;
   align-items: end;
@@ -543,6 +544,7 @@ h3 {
 
 .manifesto {
   isolation: isolate;
+  min-height: 92vh;
   min-height: 92svh;
   display: grid;
   align-content: center;
@@ -693,6 +695,7 @@ h3 {
 .about-portfolio-section {
   width: 100%;
   margin: 0;
+  min-height: 100vh;
   min-height: 100svh;
   padding: clamp(5rem, 8vw, 8rem) clamp(1rem, 4vw, 4rem);
   border-top: 0;
@@ -1450,6 +1453,7 @@ h3 {
 }
 
 .impact-section {
+  min-height: 70vh;
   min-height: 70svh;
   display: grid;
   align-content: center;
@@ -1767,6 +1771,7 @@ h3 {
 .insights-section {
   isolation: isolate;
   overflow: hidden;
+  min-height: 88vh;
   min-height: 88svh;
   display: grid;
   align-content: center;
@@ -2297,7 +2302,7 @@ h3 {
   z-index: 2;
   inset: 0;
   overflow: hidden;
-  background: #050505;
+  background: #eef0f2;
 }
 
 .media-track {
@@ -2331,7 +2336,7 @@ h3 {
   place-items: center;
   scroll-snap-align: center;
   scroll-snap-stop: always;
-  background: #050505;
+  background: #eef0f2;
   cursor: pointer;
   outline: 0;
 }
@@ -2390,12 +2395,19 @@ h3 {
 }
 
 .media-dots button {
+  position: relative;
   width: 0.42rem;
   height: 0.42rem;
   padding: 0;
   border: 0;
   border-radius: 50%;
   background: rgba(247, 241, 231, 0.38);
+}
+
+.media-dots button::before {
+  content: "";
+  position: absolute;
+  inset: -0.55rem;
 }
 
 .media-dots button.is-active {
@@ -2896,13 +2908,16 @@ h3 {
   background: rgba(5, 5, 4, 0.94);
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
   transform: scale(1.02);
-  transition: opacity 220ms ease, transform 220ms ease;
+  transition: opacity 220ms ease, transform 220ms ease, visibility 0s linear 220ms;
 }
 
 .project-overlay.is-open {
   opacity: 1;
   pointer-events: auto;
+  visibility: visible;
+  transition: opacity 220ms ease, transform 220ms ease;
   transform: scale(1);
 }
 
@@ -3042,6 +3057,7 @@ h3 {
 .project-dialog,
 .annotation-dialog {
   width: min(680px, calc(100% - 2rem));
+  max-height: calc(100vh - 2rem);
   max-height: calc(100svh - 2rem);
   padding: 0;
   border: 1px solid var(--line);
@@ -3365,6 +3381,7 @@ h3 {
   }
 
   .hero {
+    min-height: 94vh;
     min-height: 94svh;
   }
 
@@ -3504,7 +3521,10 @@ h3 {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
@@ -3635,6 +3655,7 @@ h3 {
 
 .hero {
   width: min(1360px, calc(100% - clamp(2rem, 7vw, 7rem)));
+  min-height: 100vh;
   min-height: 100svh;
   padding-top: clamp(8rem, 14vh, 12rem);
   padding-bottom: clamp(5rem, 8vh, 7rem);
@@ -4560,6 +4581,7 @@ h3 {
   }
 
   .hero {
+    min-height: 96vh;
     min-height: 96svh;
   }
 
@@ -5080,6 +5102,7 @@ h3 {
 
 /* Scroll-driven opening scene. JS feeds the variables; CSS keeps the existing hero structure intact. */
 html.is-cinematic-scroll .hero {
+  min-height: 100vh;
   min-height: 100svh;
   --hero-title-shift: 0px;
   --hero-title-scale: 1;
@@ -5304,7 +5327,9 @@ html.is-cinematic-scroll .hero .scroll-cue {
   z-index: 0;
   top: 0;
   width: calc(100% + clamp(2.5rem, 10vw, 10rem));
+  height: 100vh;
   height: 100svh;
+  margin: calc(clamp(8rem, 12vw, 13rem) * -1) calc(clamp(1.25rem, 5vw, 5rem) * -1) -100vh;
   margin: calc(clamp(8rem, 12vw, 13rem) * -1) calc(clamp(1.25rem, 5vw, 5rem) * -1) -100svh;
   overflow: hidden;
   pointer-events: none;

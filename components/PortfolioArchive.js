@@ -4,7 +4,8 @@
   if (!root || !data) return;
 
   const MEDIA_KEY = "guo-xuantong-portfolio-archive-media";
-  const editorAccess = new URLSearchParams(window.location.search).get("edit") === "1";
+  const editorHostAllowed = window.location.protocol === "file:" || ["localhost", "127.0.0.1", "[::1]"].includes(window.location.hostname);
+  const editorAccess = editorHostAllowed && new URLSearchParams(window.location.search).get("edit") === "1";
 
   const readMedia = () => {
     if (!editorAccess) return {};
@@ -195,9 +196,9 @@
   const renderNarrativeVideoStage = (slot = {}) => {
     const uploaded = mediaState[slot.id] || [];
     const defaultVideos = [
-      "assets/cetus/ai-narrative/ai-video-candidate-04.mp4",
-      "assets/cetus/ai-narrative/ai-video-digital-exhibition-02.mp4",
-    ].map((src) => ({ src, type: "video/mp4" }));
+      { src: "assets/cetus/ai-narrative/ai-video-candidate-04.mp4", poster: "assets/cetus/ai-narrative/ai-video-candidate-04-poster.jpg" },
+      { src: "assets/cetus/ai-narrative/ai-video-digital-exhibition-02b.mp4", poster: "assets/cetus/ai-narrative/ai-video-digital-exhibition-02-poster.jpg" },
+    ].map((item) => ({ ...item, type: "video/mp4" }));
     const media = (uploaded.length ? uploaded : defaultVideos).slice(0, 2);
     const hasUploadedMedia = uploaded.length > 0;
 
@@ -206,12 +207,12 @@
         <div class="narrative-video-stage-grid">
           ${media.map((file, index) => `
             <figure class="narrative-video-frame narrative-video-frame--${index + 1}">
-              <video src="${file.src}" muted autoplay loop playsinline controls preload="metadata" aria-label="AI Video Digital Exhibition ${index + 1}"></video>
+              <video src="${file.src}"${file.poster ? ` poster="${file.poster}"` : ""} muted autoplay loop playsinline controls preload="metadata" aria-label="AI Video Digital Exhibition ${index + 1}"></video>
               <figcaption><span>0${index + 1}</span><b>${index === 0 ? "Narrative study" : "Visual study"}</b></figcaption>
             </figure>
           `).join("")}
         </div>
-        <p class="narrative-video-stage-note">${hasUploadedMedia ? `${uploaded.length} VIDEOS ADDED / \u5df2\u6dfb\u52a0\u89c6\u9891\u7d20\u6750` : "DUAL-SCREEN STUDY / \u53cc\u89c6\9891\u5c55\u89c8\u7d20\u6750"}</p>
+        <p class="narrative-video-stage-note">${hasUploadedMedia ? `${uploaded.length} VIDEOS ADDED / \u5df2\u6dfb\u52a0\u89c6\u9891\u7d20\u6750` : "DUAL-SCREEN STUDY / \u53cc\u89c6\u9891\u5c55\u89c8\u7d20\u6750"}</p>
         ${editorAccess ? `
           <div class="narrative-video-stage-actions">
             <button type="button" data-slot-upload="${slot.id}" data-slot-multiple="1" data-slot-video="1">Replace videos / \u66ff\u6362\u89c6\u9891</button>
@@ -236,7 +237,7 @@
 
           <section class="narrative-lab-main-case narrative-lab-main-case--dual" aria-labelledby="ai-video-case-title">
             <div class="narrative-case-copy">
-              <p>${bilingualLabel("PROJECT 01 / AI VIDEO DIGITAL EXHIBITION", "\u4e3b\u9879\u76ee / AI\u89c6\u9891\u6570\u5b57\u5c55\u5385")}</p>
+              <p>${bilingualLabel("MAIN CASE / AI VIDEO DIGITAL EXHIBITION", "\u4e3b\u9879\u76ee / AI\u89c6\u9891\u6570\u5b57\u5c55\u5385")}</p>
               <h3 id="ai-video-case-title">AI Video<br />Digital Exhibition</h3>
               <b>\u4ee5\u53cc\u5f71\u50cf\u7ec4\u7ec7\u6982\u5ff5\u3001\u573a\u666f\u4e0e\u60c5\u7eea</b>
               <p class="narrative-statement">Two moving images, one exhibition surface.<span>\u901a\u8fc7\u5e76\u7f6e\u7684\u4e24\u6bb5 AI \u5f71\u50cf\uff0c\u5c55\u793a\u62bd\u8c61\u4e3b\u9898\u5982\u4f55\u88ab\u8f6c\u6362\u6210\u53ef\u8fdb\u5165\u3001\u53ef\u611f\u77e5\u7684\u6570\u5b57\u53d9\u4e8b\u3002</span></p>
@@ -284,7 +285,7 @@
         ${project.number === "02" ? renderProjectTwoSystem() : ""}
         ${project.number === "03" ? renderProjectThreeComparison() : ""}
         <section class="archive-assets" aria-labelledby="${project.id}-assets-title">
-          <header class="archive-subhead"><span>${bilingualLabel("ASSET SLOTS", "素材位置")}</span><h3 id="${project.id}-assets-title">Evidence waiting for the right material.</h3><p class="archive-subhead-cn">为每一条判断补上对应的真实素材。</p></header>
+          <header class="archive-subhead"><span>${bilingualLabel("ASSET SLOTS", "素材位置")}</span><h3 id="${project.id}-assets-title">Selected evidence for each claim.</h3><p class="archive-subhead-cn">每一条判断都有对应的真实素材记录。</p></header>
           <div class="asset-slot-grid">${project.slots.map(renderSlot).join("")}</div>
         </section>
         <aside class="archive-insight">
@@ -366,8 +367,7 @@
           <p class="archive-title-cn">${data.sectionTranslations.contact}</p>
           <div class="archive-contact-links">
             <a href="mailto:15944075696@139.com">Email<span>15944075696@139.com</span></a>
-            <a href="#contact">WeChat<span>Heyits42</span></a>
-            <a href="https://www.xiaohongshu.com/" target="_blank" rel="noreferrer">Xiaohongshu<span>小红书</span></a>
+            <a href="#contact" data-copy-wechat="Heyits42">WeChat<span data-wechat-label>Heyits42</span></a>
           </div>
         </div>
       </section>
@@ -397,6 +397,46 @@
   } else {
     operatingSection?.classList.add("is-operating-visible");
   }
+
+  const wechatLink = root.querySelector("[data-copy-wechat]");
+  if (wechatLink) {
+    wechatLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      const id = wechatLink.dataset.copyWechat;
+      const label = wechatLink.querySelector("[data-wechat-label]");
+      const done = () => {
+        if (!label) return;
+        const original = label.textContent;
+        label.textContent = "\u5df2\u590d\u5236 " + id;
+        window.setTimeout(() => { label.textContent = original; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(id).then(done).catch(() => {});
+      } else {
+        const field = document.createElement("textarea");
+        field.value = id;
+        field.setAttribute("readonly", "");
+        field.style.position = "absolute";
+        field.style.left = "-9999px";
+        document.body.appendChild(field);
+        field.select();
+        try { document.execCommand("copy"); done(); } catch {}
+        document.body.removeChild(field);
+      }
+    });
+  }
+
+  root.addEventListener("error", (event) => {
+    const img = event.target;
+    if (!img || img.tagName !== "IMG" || img.dataset.mobileFallbackDone) return;
+    const picture = img.closest("picture");
+    if (!picture || !picture.querySelector("source")) return;
+    img.dataset.mobileFallbackDone = "1";
+    picture.querySelectorAll("source").forEach((source) => source.remove());
+    const src = img.getAttribute("src");
+    img.removeAttribute("src");
+    img.setAttribute("src", src);
+  }, true);
 
   if (editorAccess) {
     const input = root.querySelector("[data-archive-file-input]");
