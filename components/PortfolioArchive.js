@@ -17,6 +17,7 @@
   };
 
   const mediaState = readMedia();
+  let placeholderImageIndex = 0;
 
   const saveMedia = () => {
     try {
@@ -88,8 +89,10 @@
       const mobileSrc = file.placeholder
         ? file.src.replace(/^assets\//, "assets/mobile/").replace(/\.(png|jpe?g)([?#].*)?$/i, ".jpg$2")
         : file.src;
-      const fetchPriority = file.placeholder && index < 2 ? "high" : "auto";
-      const loading = file.placeholder ? "eager" : "lazy";
+      const imageIndex = file.placeholder ? placeholderImageIndex++ : -1;
+      const isPriorityImage = imageIndex >= 0 && imageIndex < 2;
+      const fetchPriority = isPriorityImage ? "high" : "auto";
+      const loading = isPriorityImage ? "eager" : "lazy";
       return `<picture><source media="(max-width: 760px)" srcset="${mobileSrc}"><img src="${file.src}" alt="${slot.title} ${index + 1}" loading="${loading}" decoding="async" fetchpriority="${fetchPriority}"></picture>`;
     }).join("");
   };
@@ -109,12 +112,12 @@
           <h4>${slot.title}</h4>
           ${slot.cnTitle ? `<b class="asset-slot-cn-title">${slot.cnTitle}</b>` : ""}
           <p>${slot.content}</p>
-          <dl>
-            <div><dt>${bilingualLabel("RATIO", "素材比例")}</dt><dd>${slot.ratio}</dd></div>
-            <div><dt>${bilingualLabel("USE", "素材用途")}</dt><dd>${slot.note}</dd></div>
-            <div><dt>${bilingualLabel("CHECK", "发布前检查")}</dt><dd>${slot.privacy}</dd></div>
+          <dl${editorAccess ? ' class="is-editor-meta"' : ""}>
+            <div><dt>${bilingualLabel("FORMAT", "呈现形式")}</dt><dd>${slot.ratio}</dd></div>
+            <div><dt>${bilingualLabel("ROLE", "内容作用")}</dt><dd>${slot.note}</dd></div>
+            ${editorAccess ? `<div><dt>${bilingualLabel("CHECK", "发布前检查")}</dt><dd>${slot.privacy}</dd></div>` : ""}
           </dl>
-          <small>${hasUploadedMedia ? `${uploadedFiles.length} Asset${uploadedFiles.length > 1 ? "s" : ""} Added / 已添加 ${uploadedFiles.length} 份素材` : (hasPlaceholder ? `${placeholderSources.length} Curated Asset${placeholderSources.length > 1 ? "s" : ""} / 已归档素材` : "Asset Pending / 待补素材")}</small>
+          ${editorAccess ? `<small>${hasUploadedMedia ? `${uploadedFiles.length} Asset${uploadedFiles.length > 1 ? "s" : ""} Added / 已添加 ${uploadedFiles.length} 份素材` : (hasPlaceholder ? `${placeholderSources.length} Curated Asset${placeholderSources.length > 1 ? "s" : ""} / 已归档素材` : "Asset Pending / 待补素材")}</small>` : ""}
         </div>
         ${editorAccess ? `
           <div class="asset-slot-actions">
@@ -212,7 +215,7 @@
             </figure>
           `).join("")}
         </div>
-        <p class="narrative-video-stage-note">${hasUploadedMedia ? `${uploaded.length} VIDEOS ADDED / \u5df2\u6dfb\u52a0\u89c6\u9891\u7d20\u6750` : "DUAL-SCREEN STUDY / \u53cc\u89c6\u9891\u5c55\u89c8\u7d20\u6750"}</p>
+        <p class="narrative-video-stage-note">${hasUploadedMedia ? `${uploaded.length} VIDEOS ADDED / \u5df2\u6dfb\u52a0\u89c6\u9891\u7d20\u6750` : "DUAL-SCREEN STUDY / \u53cc\u5f71\u50cf\u53d9\u4e8b\u7814\u7a76"}</p>
         ${editorAccess ? `
           <div class="narrative-video-stage-actions">
             <button type="button" data-slot-upload="${slot.id}" data-slot-multiple="1" data-slot-video="1">Replace videos / \u66ff\u6362\u89c6\u9891</button>
@@ -285,7 +288,7 @@
         ${project.number === "02" ? renderProjectTwoSystem() : ""}
         ${project.number === "03" ? renderProjectThreeComparison() : ""}
         <section class="archive-assets" aria-labelledby="${project.id}-assets-title">
-          <header class="archive-subhead"><span>${bilingualLabel("ASSET SLOTS", "素材位置")}</span><h3 id="${project.id}-assets-title">Selected evidence for each claim.</h3><p class="archive-subhead-cn">每一条判断都有对应的真实素材记录。</p></header>
+          <header class="archive-subhead"><span>${bilingualLabel("SELECTED EVIDENCE", "项目证据")}</span><h3 id="${project.id}-assets-title">Evidence behind the work.</h3><p class="archive-subhead-cn">关键判断均有对应的真实项目记录。</p></header>
           <div class="asset-slot-grid">${project.slots.map(renderSlot).join("")}</div>
         </section>
         <aside class="archive-insight">

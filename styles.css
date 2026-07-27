@@ -2600,16 +2600,20 @@ h3 {
 }
 
 .quantum-media .project-media-placeholder::before {
-  content: "可添加多张附录图片";
+  content: "项目附录图像";
   color: var(--ink);
   font-size: 1rem;
   font-weight: 800;
 }
 
 .quantum-media .project-media-placeholder::after {
-  content: "支持左右滑动";
+  content: "左右滑动查看";
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.is-editing .quantum-media .project-media-placeholder::before {
+  content: "可添加多张附录图片";
 }
 
 .is-editing .quantum-media .project-media-placeholder {
